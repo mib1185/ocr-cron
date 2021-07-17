@@ -2,6 +2,33 @@
 
 Read files from INPUTDIR, generate searchable PDF and store in OUTPUTDIR
 
+## installation
+
+#### clone repository
+
+```
+git clone https://github.com/mib1185/ocr-cron.git
+```
+
+#### change into directory
+
+```
+cd ocr-cron
+```
+
+#### install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+#### add cronjob
+example `crontab` entry
+```
+# m h  dom mon dow   command
+*/5 * * * * /usr/bin/python3 /root/ocr-cron/main.py -i <input-dir> -o <output-dir> -d
+```
+
 ## options
 
 ```
@@ -25,11 +52,4 @@ optional arguments:
                         file is complete (default: 5)
   --lockfile LOCKFILE   lockfile (default: /tmp/ocr-cron.lock)
   --logfile LOGFILE     logfile (default: /var/log/ocr-cron.log)
-```
-
-## crontab example
-
-```
-# m h  dom mon dow   command
-*/5 * * * * /usr/bin/python3 /root/ocr-cron/main.py -i <input-dir> -o <output-dir> -d
 ```
